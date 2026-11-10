@@ -1,0 +1,3 @@
+* text=auto
+# Model files are checked by SHA-256: keep their bytes exactly as they are.
+public/models/** binary

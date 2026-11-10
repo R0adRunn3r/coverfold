@@ -1,0 +1,16 @@
+node_modules
+dist
+*.log
+.DS_Store
+.vite
+*.tsbuildinfo
+.claude/
+.env*
+coverage
+# Local launch scripts
+*.bat
+
+# Internal notes, guide and test bench, kept locally: only the README images go up
+docs/*
+!docs/images/
+src/dev/

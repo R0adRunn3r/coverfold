@@ -1,0 +1,18 @@
+name: Idea or suggestion
+description: A new template, a feature, or something that could be easier.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: You can write in English or Italian.
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What it would help with
+      description: The case, the disc or the situation you have in mind.

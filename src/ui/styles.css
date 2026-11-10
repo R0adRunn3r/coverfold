@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* Light palette. The dark one overrides the same tokens below, so components
+   only ever use token classes (bg-panel, text-ink, …), never raw colours.
+   Paper (print previews, the editor sheet) stays white in both themes. */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-accent: #2f5bd3;
+  --color-accent-dark: #1f44a8;
+  --color-accent-soft: #e7edfc;
+  --color-ink: #1d1f24;
+  --color-muted: #6b7180;
+  --color-line: #e2e4ea;
+  --color-panel: #ffffff;
+  --color-canvas: #eceef2;
+  --color-hover: #f5f6f8;
+  --color-subtle: #eef0f3;
+  --color-checker: #f2f3f6;
+  --color-warn: #b25e09;
+  --color-warn-soft: #fdf1e2;
+  --color-danger: #c53030;
+  --color-danger-soft: #fdecec;
+  --color-ok: #2f855a;
+  --color-ok-soft: #e6f4ec;
+}
+
+:root { color-scheme: light; }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-accent: #5b7ff0;
+  --color-accent-dark: #7593f4;
+  --color-accent-soft: #24304d;
+  --color-ink: #e7e9ee;
+  --color-muted: #9aa1b0;
+  --color-line: #343843;
+  --color-panel: #1e2127;
+  --color-canvas: #14161a;
+  --color-hover: #292d35;
+  --color-subtle: #2a2e36;
+  --color-checker: #2a2e36;
+  --color-warn: #f0a24a;
+  --color-warn-soft: #3a2b18;
+  --color-danger: #f17777;
+  --color-danger-soft: #3d2023;
+  --color-ok: #5cc28a;
+  --color-ok-soft: #1b3326;
+}
+
+html, body, #root { height: 100%; }
+body { margin: 0; background: var(--color-canvas); color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-1.5 rounded-md border border-line bg-panel px-3 py-1.5 text-sm text-ink transition hover:bg-hover disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply border-transparent bg-accent text-white hover:bg-accent-dark; }
+  .btn-ghost { @apply border-transparent bg-transparent hover:bg-ink/5; }
+  .btn-sm { @apply px-2 py-1 text-xs; }
+  .btn-icon { @apply h-8 w-8 shrink-0 p-0; }
+  .seg { @apply inline-flex rounded-md border border-line bg-panel p-0.5; }
+  .seg > button { @apply rounded px-2 py-1 text-xs text-muted hover:text-ink; }
+  .seg > button[aria-pressed="true"] { @apply bg-accent-soft text-accent font-medium; }
+  .seg > button:disabled { @apply cursor-not-allowed; }
+  .seg > button:disabled:not([aria-pressed="true"]) { @apply text-muted opacity-50; }
+  .field { @apply w-full rounded-md border border-line bg-panel px-2 py-1 text-sm text-ink outline-none focus:border-accent focus:ring-2 focus:ring-accent/20; }
+  .label { @apply text-[11px] font-medium uppercase tracking-wide text-muted; }
+  .card { @apply rounded-xl border border-line bg-panel; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-medium; }
+  /* The number beside a slider: looks like a value, a dotted underline says it can be typed. */
+  .slider-value { @apply max-w-full cursor-text truncate rounded px-1 py-0.5 text-right text-xs tabular-nums text-muted underline decoration-muted/40 decoration-dotted underline-offset-[3px] hover:bg-hover hover:text-ink hover:decoration-ink/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40; }
+  /* Top bars: labels stay on one line (elsewhere long labels may wrap inside their panel). */
+  .toolbar .btn, .toolbar .seg > button { @apply shrink-0 whitespace-nowrap; }
+  /* Paper shown on screen: always white, with a soft edge that also reads on a dark background. */
+  .paper { @apply bg-white shadow-md ring-1 ring-black/5; }
+}
+
+input[type="range"] { accent-color: var(--color-accent); }
+input[type="checkbox"] { accent-color: var(--color-accent); }
+
+/* Progress of unknown length: a short bar sweeping across. */
+@keyframes ck-sweep { from { left: -35%; } to { left: 100%; } }
+.progress-sweep { animation: ck-sweep 1.3s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .progress-sweep { animation-duration: 3.5s; } }
