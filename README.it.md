@@ -6,7 +6,7 @@
 
 **Crea le custodie per CD, DVD e Blu-ray nel browser.<br>Stampi su A4, tagli, pieghi, fatto.**
 
-<a href="https://r0adrunn3r.github.io/coverfold/"><img src="https://img.shields.io/badge/Apri%20l'app-2f5bd3?style=for-the-badge" alt="Apri l'app"></a>
+<a href="https://coverfold.punktomato.com/"><img src="https://img.shields.io/badge/Apri%20l'app-2f5bd3?style=for-the-badge" alt="Apri l'app"></a>
 
 <a href="https://github.com/R0adRunn3r/coverfold/actions/workflows/pages.yml"><img src="https://github.com/R0adRunn3r/coverfold/actions/workflows/pages.yml/badge.svg" alt="Stato della pubblicazione"></a>
 <a href="LICENSE.md"><img src="https://img.shields.io/badge/licenza-PolyForm%20Noncommercial-555" alt="Licenza: PolyForm Noncommercial 1.0.0"></a>
@@ -126,7 +126,7 @@ Le misure sono quelle del formato rifilato con i valori predefiniti; si possono 
 
 ### Online
 
-Apri **https://r0adrunn3r.github.io/coverfold/**. Il risultato migliore è con Chrome o Edge: l'ingrandimento con IA richiede WebGPU e, senza, funziona solo il modello Lite, sul processore.
+Apri **https://coverfold.punktomato.com/**. Il risultato migliore è con Chrome o Edge: l'ingrandimento con IA richiede WebGPU e, senza, funziona solo il modello Lite, sul processore.
 
 ### Sul tuo computer
 
@@ -204,7 +204,7 @@ npm run lint     # ESLint
 npm run build    # controllo dei tipi e build statica in dist/
 ```
 
-Il workflow in [.github/workflows/pages.yml](.github/workflows/pages.yml) esegue i test e pubblica la build su GitHub Pages a ogni push su `main`. Per una build servita da un sottopercorso si imposta `BASE_PATH` (per esempio `/coverfold/`).
+Il workflow in [.github/workflows/pages.yml](.github/workflows/pages.yml) esegue i test e pubblica la build su GitHub Pages a ogni push su `main`, alla radice di un dominio personalizzato oppure sotto `/<repo>/` su github.io. Per una build a mano da servire in un sottopercorso si imposta `BASE_PATH` (per esempio `/coverfold/`).
 
 ## Crediti
 

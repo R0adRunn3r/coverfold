@@ -27,6 +27,11 @@ void i18n.init({
   initAsync: false,
 });
 
+// The page language follows the app's, for screen readers and search engines.
+const markLang = (lng: string) => { if (typeof document !== 'undefined') document.documentElement.lang = lng; };
+markLang(i18n.language);
+i18n.on('languageChanged', markLang);
+
 export const t = (key: string, opts: Record<string, unknown> = {}): string => i18n.t(key, opts) as string;
 
 export function setLang(lang: Lang): void {

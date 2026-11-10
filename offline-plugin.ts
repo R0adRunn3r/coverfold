@@ -18,6 +18,8 @@ function listPublic(dir: string, root = dir): string[] {
 export const isLazy = (f: string) => f.endsWith('.wasm');
 /** The AI models (75 MB) are fetched and cached by the app itself, one at a time, when chosen. */
 const onDemand = (f: string) => f.startsWith('models/');
+/** The link preview image is for other sites, not for the app: never cached. */
+const shareOnly = (f: string) => f === 'og-image.jpg';
 
 const swSource = (files: string[], lazy: string[], version: string) => `// Coverfold offline cache (generated at build time).
 const CACHE = 'coverfold-${version}';
@@ -72,7 +74,7 @@ export function offline(): Plugin {
     configResolved(c) { publicDir = c.publicDir; },
     generateBundle(_, bundle) {
       const all = [...Object.keys(bundle).filter((f) => !f.endsWith('.map')), ...listPublic(publicDir)].filter((f) => f !== 'sw.js');
-      const files = all.filter((f) => !isLazy(f) && !onDemand(f)).sort();
+      const files = all.filter((f) => !isLazy(f) && !onDemand(f) && !shareOnly(f)).sort();
       const lazy = all.filter(isLazy).sort();
       // New build files or new worker code give a new cache name; old caches are dropped on activate.
       const version = createHash('sha256').update([...files, ...lazy].join('|') + swSource([], [], '')).digest('hex').slice(0, 12);

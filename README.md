@@ -6,7 +6,7 @@
 
 **Design CD, DVD and Blu-ray packaging in your browser.<br>Print it on A4, cut, fold, done.**
 
-<a href="https://r0adrunn3r.github.io/coverfold/"><img src="https://img.shields.io/badge/Open%20the%20app-2f5bd3?style=for-the-badge" alt="Open the app"></a>
+<a href="https://coverfold.punktomato.com/"><img src="https://img.shields.io/badge/Open%20the%20app-2f5bd3?style=for-the-badge" alt="Open the app"></a>
 
 <a href="https://github.com/R0adRunn3r/coverfold/actions/workflows/pages.yml"><img src="https://github.com/R0adRunn3r/coverfold/actions/workflows/pages.yml/badge.svg" alt="Deploy status"></a>
 <a href="LICENSE.md"><img src="https://img.shields.io/badge/license-PolyForm%20Noncommercial-555" alt="License: PolyForm Noncommercial 1.0.0"></a>
@@ -126,7 +126,7 @@ All sizes are trim sizes with the default measurements; every one of them can be
 
 ### Online
 
-Open **https://r0adrunn3r.github.io/coverfold/**. It works best in Chrome or Edge: AI upscaling needs WebGPU, and without it only the Lite model runs, on the processor.
+Open **https://coverfold.punktomato.com/**. It works best in Chrome or Edge: AI upscaling needs WebGPU, and without it only the Lite model runs, on the processor.
 
 ### On your computer
 
@@ -204,7 +204,7 @@ npm run lint     # ESLint
 npm run build    # type check and static build in dist/
 ```
 
-The workflow in [.github/workflows/pages.yml](.github/workflows/pages.yml) runs the tests and publishes the build to GitHub Pages on every push to `main`. For a build served from a sub-path, set `BASE_PATH` (for example `/coverfold/`).
+The workflow in [.github/workflows/pages.yml](.github/workflows/pages.yml) runs the tests and publishes the build to GitHub Pages on every push to `main`, at the root of a custom domain or under `/<repo>/` on github.io. To build by hand for a sub-path, set `BASE_PATH` (for example `/coverfold/`).
 
 ## Credits
 

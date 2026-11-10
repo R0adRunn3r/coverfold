@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,65 @@
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="apple-touch-icon" href="./icons/icon-192.png" />
     <meta name="theme-color" content="#2f5bd3" />
-    <title>Coverfold</title>
+    <title>Coverfold: CD, DVD and Blu-ray covers to print at home</title>
+    <meta name="description" content="Design CD, DVD and Blu-ray covers in your browser and print them at exact size on A4, with bleed and crop marks. Free, no account, works offline." />
+    <link rel="canonical" href="https://coverfold.punktomato.com/" />
+    <!-- Link previews on social sites and chats. They need absolute URLs and are read without running the app. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Coverfold" />
+    <meta property="og:title" content="Coverfold: CD, DVD and Blu-ray covers to print at home" />
+    <meta property="og:description" content="Design CD, DVD and Blu-ray covers in your browser and print them at exact size on A4. Free, no account, works offline." />
+    <meta property="og:url" content="https://coverfold.punktomato.com/" />
+    <meta property="og:image" content="https://coverfold.punktomato.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A printed A4 sheet and the CD case folded from it" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Structured data for search engines and AI assistants. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Coverfold",
+        "url": "https://coverfold.punktomato.com/",
+        "description": "Design CD, DVD and Blu-ray covers in your browser and print them at exact size on A4, with bleed, crop marks, fold lines and assembly instructions.",
+        "image": "https://coverfold.punktomato.com/og-image.jpg",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Any, in a web browser",
+        "browserRequirements": "Requires JavaScript. AI upscaling needs WebGPU.",
+        "inLanguage": ["en", "it"],
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "featureList": [
+          "Jewel case booklets, tray cards and obi strips",
+          "DVD and Blu-ray covers and slipcovers",
+          "Cardboard sleeves, digipaks, CD wallets and disc labels",
+          "PDF at exact size on A4 with bleed, crop marks and fold lines",
+          "3D preview of the folded case",
+          "3D-printable disc tray made to measure",
+          "AI upscaling of small pictures on the local graphics card",
+          "Works offline, no account, no upload"
+        ],
+        "author": { "@type": "Person", "name": "R0adRunn3r", "url": "https://github.com/R0adRunn3r" },
+        "license": "https://polyformproject.org/licenses/noncommercial/1.0.0/",
+        "sameAs": ["https://github.com/R0adRunn3r/coverfold"]
+      }
+    </script>
+    <style>
+      /* The text in #root is for readers and crawlers that do not run scripts; the app replaces it when it starts.
+         It fades in only if the app has not started after a few seconds, so a normal visit never sees it. */
+      .about { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; line-height: 1.55; opacity: 0; animation: about-in 0.3s 3s forwards; }
+      .about h1 { font-size: 1.6rem; line-height: 1.25; font-weight: 600; margin-bottom: 0.8rem; }
+      .about h2 { font-size: 1.15rem; font-weight: 600; margin: 2rem 0 0.5rem; }
+      .about h3 { font-size: 1rem; font-weight: 600; margin: 1.2rem 0 0.2rem; }
+      .about p { margin: 0.4rem 0; }
+      .about ul, .about ol { padding-left: 1.4rem; }
+      .about ul { list-style: disc; }
+      .about ol { list-style: decimal; }
+      .about a { color: var(--color-accent, #2f5bd3); }
+      @keyframes about-in { to { opacity: 1; } }
+    </style>
+    <noscript><style>.about { animation: none; opacity: 1; }</style></noscript>
     <script>
       // Theme before first paint (no white flash in dark mode). Kept in sync with src/ui/theme.ts.
       try {
@@ -18,7 +76,47 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Kept in step with the README: what the app is, for pages read without JavaScript. -->
+      <main class="about">
+        <h1>Coverfold: CD, DVD and Blu-ray covers to print at home</h1>
+        <p>Coverfold is a free web app to design packaging for your discs and print it at home on A4. Drop your images on the panels, add your text, and export a PDF that prints at exact size, with bleed, crop marks, fold lines and assembly instructions.</p>
+        <noscript><p><strong>Coverfold runs in your browser and needs JavaScript.</strong></p></noscript>
+        <h2>What you can make</h2>
+        <ul>
+          <li>Jewel case booklets (single leaf, 4 pages or saddle-stitched), tray cards and obi strips</li>
+          <li>DVD and Blu-ray covers, standard and slim, and slipcovers</li>
+          <li>Cardboard sleeves, sleeves with a flap, paper inner sleeves and slipcases</li>
+          <li>Digipaks and CD wallets, with a 3D-printable disc tray made to measure</li>
+          <li>Disc labels on A4 sticker paper</li>
+        </ul>
+        <h2>How it works</h2>
+        <ol>
+          <li>Pick the packaging. Every dieline is generated from measurements, so you can match a real case.</li>
+          <li>Drop your images and add text, tracklists and QR codes. Bleed is added to every panel for you.</li>
+          <li>Export the PDF and print it on A4. Pieces larger than A4 are split along a fold, with glue tabs.</li>
+        </ol>
+        <h2>Features</h2>
+        <ul>
+          <li>No account and no upload: your pictures stay on your computer.</li>
+          <li>Works offline after the first visit, and installs as an app.</li>
+          <li>3D preview that folds the printed sheet into the finished case.</li>
+          <li>AI upscaling for small pictures, on your own graphics card.</li>
+          <li>Album art and tracklists from MusicBrainz and the Cover Art Archive.</li>
+          <li>English and Italian.</li>
+        </ul>
+        <h2>Questions</h2>
+        <h3>Is Coverfold free?</h3>
+        <p>Yes. There is nothing to pay, no account and no ads. The source code is under the PolyForm Noncommercial license.</p>
+        <h3>What paper should I use?</h3>
+        <p>120 to 170 g/m² paper for booklets and tray cards, 250 to 300 g/m² cardstock for sleeves, digipaks and slipcases, and A4 sticker paper for disc labels.</p>
+        <h3>Will it print at the right size?</h3>
+        <p>Yes. The PDF is at real scale on A4 and can include a 100 mm ruler, so you can check that the printer did not resize it.</p>
+        <h3>Where are my projects saved?</h3>
+        <p>In your browser, on your computer. You can export a backup file at any time.</p>
+        <p><a href="https://github.com/R0adRunn3r/coverfold">Source code and documentation on GitHub</a></p>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
     <!-- Anonymous visit count, no cookies (https://www.goatcounter.com). It skips localhost on its own. -->
     <script data-goatcounter="https://coverfold.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>

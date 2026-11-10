@@ -1,8 +1,8 @@
 {
   "name": "Coverfold",
   "short_name": "Coverfold",
-  "description": "Editor per custodie CD, DVD e Blu-ray da stampare su fogli A4, con bleed, crocini e istruzioni di montaggio. Funziona offline.",
-  "lang": "it",
+  "description": "Design CD, DVD and Blu-ray covers and print them at exact size on A4, with bleed, crop marks and assembly instructions. Works offline.",
+  "lang": "en",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
