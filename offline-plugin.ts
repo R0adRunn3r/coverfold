@@ -18,8 +18,9 @@ function listPublic(dir: string, root = dir): string[] {
 export const isLazy = (f: string) => f.endsWith('.wasm');
 /** The AI models (75 MB) are fetched and cached by the app itself, one at a time, when chosen. */
 const onDemand = (f: string) => f.startsWith('models/');
-/** The link preview image is for other sites, not for the app: never cached. */
-const shareOnly = (f: string) => f === 'og-image.jpg';
+/** Files for crawlers, link previews and missing pages, not for the app: never cached. */
+const NOT_APP = new Set(['og-image.jpg', 'robots.txt', 'sitemap.xml', '404.html']);
+const shareOnly = (f: string) => NOT_APP.has(f);
 
 const swSource = (files: string[], lazy: string[], version: string) => `// Coverfold offline cache (generated at build time).
 const CACHE = 'coverfold-${version}';
